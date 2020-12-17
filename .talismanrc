@@ -1,0 +1,15 @@
+fileignoreconfig:
+- filename: _templates/f5_sphinx_theme/static/css/CoveoFullSearch.css
+  checksum: 30c09a883fb1ce04e14bb90a120cd5821dac659f243641714d8a64e088f2c15d
+- filename: _templates/f5_sphinx_theme/layout.html
+  checksum: 004111f5d4eae3ed4947ad71831200f5d01083c6c7daf2eeaad5e930e187701e
+- filename: _templates/f5_sphinx_theme/searchbox.html
+  checksum: fa11c47d90dfac982063d54aba82d55d09d9aca6ee8a4f4ecc657bf34cc0a0cf
+- filename: .devcontainer/scripts/gcloud.sh
+  checksum: 6f729a453a79a3e2547e51ae6d027fed5e03c16761a061a4a090a4106ee16c9e
+- filename: _templates/f5_sphinx_theme/static/js/bootstrap.js
+  checksum: f54b4c89b18b61b5f0799c366f6ac46e578fe47c9712fe7d2e2a30e791d78f48
+- filename: _templates/f5_sphinx_theme/static/js/bootstrap.min.js
+  checksum: d6c142a53d2fdfd6e734d97e62c02ea5cf81fb991dd390fe23faa616fd50fb4f
+- filename: _templates/f5_sphinx_theme/static/js/CoveoJsSearch.Lazy.min.js
+  checksum: 8565617f9c7fcbaa23b1672f9c35b2a7ff720868dbd06ce89c4653922a024732
