@@ -64,11 +64,6 @@ master_doc = 'index'
 # html_theme_path = f5_sphinx_theme.get_html_theme_path()
 # html_theme_path = ["docs/_themes/"]
 html_theme = 'f5_sphinx_theme'
-html_theme_options = {
-                        'site_name': 'F5 TLS Automation'
-                        'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S'
-                        'base_url' = '/'
-                     }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
