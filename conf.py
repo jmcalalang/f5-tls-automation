@@ -16,7 +16,7 @@ import time
 import re
 import pkgutil
 import string
-#import f5_sphinx_theme
+import f5_sphinx_theme
 #sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
@@ -61,10 +61,15 @@ master_doc = 'index'
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
+# html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_theme_path = ["docs/_themes/"]
 html_theme = 'f5_sphinx_theme'
-#html_theme_path = f5_sphinx_theme.get_html_theme_path()
-
+html_theme_options = {
+                        'site_name': '<desired site name>',          \\ DEFAULTS TO "CloudDocs home"
+                        'next_prev_link': True or False              \\ DEFAULTS TO FALSE
+                        'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S' \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
+                        # 'base_url' = ''                            \\ DEFAULTS TO '/'
+                     }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
