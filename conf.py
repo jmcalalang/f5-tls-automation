@@ -17,7 +17,7 @@ import re
 import pkgutil
 import string
 import f5_sphinx_theme
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('docs/_themes/'))
 
 # -- Project information -----------------------------------------------------
 
