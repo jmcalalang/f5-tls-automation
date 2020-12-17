@@ -10,9 +10,14 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+import time
+import re
+import pkgutil
+import string
+sys.path.insert(0, os.path.abspath('.'))
+import f5_sphinx_theme
 
 
 # -- Project information -----------------------------------------------------
@@ -58,15 +63,8 @@ master_doc = 'index'
 #
 # html_theme = 'alabaster'
 # html_theme_path = ["docs/_themes/"]
-import os
-import sys
-import time
-import re
-import pkgutil
-import string
-sys.path.insert(0, os.path.abspath('.'))
-import f5_sphinx_theme
 html_theme = 'f5_sphinx_theme'
+html_theme_path = f5_sphinx_theme.get_html_theme_path()
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
