@@ -60,8 +60,12 @@ master_doc = 'index'
 # html_theme_path = ["docs/_themes/"]
 import os
 import sys
+import time
+import re
+import pkgutil
+import string
+sys.path.insert(0, os.path.abspath('.'))
 import f5_sphinx_theme
-# pip install f5-sphinx-theme
 html_theme = 'f5_sphinx_theme'
 
 
