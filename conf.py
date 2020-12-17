@@ -61,7 +61,7 @@ master_doc = 'index'
 import os
 import sys
 import f5_sphinx_theme
-pip install f5-sphinx-theme
+# pip install f5-sphinx-theme
 html_theme = 'f5_sphinx_theme'
 
 
