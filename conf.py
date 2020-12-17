@@ -66,7 +66,6 @@ master_doc = 'index'
 html_theme = 'f5_sphinx_theme'
 html_theme_options = {
                         'site_name': 'F5 TLS Automation'
-                        'next_prev_link': 'False'
                         'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S'
                         'base_url' = '/'
                      }
