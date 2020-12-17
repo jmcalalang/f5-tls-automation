@@ -17,7 +17,7 @@ import re
 import pkgutil
 import string
 import f5_sphinx_theme
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
@@ -62,11 +62,11 @@ master_doc = 'index'
 #
 # html_theme = 'alabaster'
 # html_theme_path = f5_sphinx_theme.get_html_theme_path()
-html_theme_path = ["docs/_themes/"]
+# html_theme_path = ["docs/_themes/"]
 html_theme = 'f5_sphinx_theme'
 html_theme_options = {
                         'site_name': 'F5 TLS Automation'
-                        'next_prev_link': False
+                        'next_prev_link': 'False'
                         'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S'
                         'base_url' = '/'
                      }
