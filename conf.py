@@ -58,6 +58,7 @@ master_doc = 'index'
 #
 # html_theme = 'alabaster'
 # html_theme_path = ["docs/_themes/"]
+pip install f5-sphinx-theme
 import f5_sphinx_theme
 html_theme = 'f5_sphinx_theme'
 
