@@ -13,3 +13,9 @@ fileignoreconfig:
   checksum: d6c142a53d2fdfd6e734d97e62c02ea5cf81fb991dd390fe23faa616fd50fb4f
 - filename: _templates/f5_sphinx_theme/static/js/CoveoJsSearch.Lazy.min.js
   checksum: 8565617f9c7fcbaa23b1672f9c35b2a7ff720868dbd06ce89c4653922a024732
+- filename: docs/_themes/f5_sphinx_theme/footer.html
+  checksum: 46c855e195d8c597b0c85d08db4bd6da424f8a2134f8b84424d7e5cf4dff89a7
+- filename: docs/_themes/f5_sphinx_theme/footer.html
+  checksum: 46c855e195d8c597b0c85d08db4bd6da424f8a2134f8b84424d7e5cf4dff89a7
+- filename: docs/_themes/f5_sphinx_theme/head.html
+  checksum: 796513e0a78090a8ab3a9ea658d4b60024e8789c9d836646de498f6211d8de62
