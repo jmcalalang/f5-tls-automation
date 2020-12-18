@@ -2,58 +2,10 @@
 $(document).ready(function () {
     var loc = window.location,
     host = loc.protocol + '//' + loc.host;
-    $('#clouddocs-header').load(host + '/header.html', loadCoveoComponents);
+    $('#clouddocs-header').load(host + '/header.html');
     $('#clouddocs-footer').load(host + '/footer.html');
 
-    Coveo.SearchEndpoint.configureCloudV2Endpoint('', 'xx564559b1-0045-48e1-953c-3addd1ee4457');
-
 });
-
-
-// Callback function that runs after loading the header component into the page
-function loadCoveoComponents() {
-  var root = Coveo.$$(document).find('#searchbox');
-  Coveo.initSearchbox(root, 'https://support.f5.com/csp/federated-search');
-
-  // Show search bar and hide search toggle button if on index page
-  var path = window.location.pathname;
-  if (path == '/' || path == '/index.html') {
-    hideSearchToggleBtn();
-    showSearchBar();
-  }
-
-  // Event listener for click on search toggle button
-  document.getElementById('search-toggle').addEventListener('click', function() {
-    var searchContainer = document.getElementById('search-container');
-    var isVisible = searchContainer.style.overflow === 'visible';
-    // Toggle visibility
-    if (isVisible) {
-      hideSearchBar();
-    } else {
-      showSearchBar();
-    }
-  })
-}
-
-// Show Coveo search bar
-function showSearchBar() {
-  var searchContainer = document.getElementById('search-container');
-  searchContainer.style.overflow = 'visible';
-  searchContainer.style.height = 'auto';
-}
-
-// Hide Coveo search bar
-function hideSearchBar() {
-  var searchContainer = document.getElementById('search-container');
-  searchContainer.style.overflow = 'hidden';
-  searchContainer.style.height = '0px';
-}
-
-// Hide search toggle button in the header
-function hideSearchToggleBtn() {
-  var button = document.getElementById('search-toggle');
-  button.style.display = 'none';
-}
 
 
 

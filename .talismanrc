@@ -1,3 +1,9 @@
 fileignoreconfig:
 - filename: docs/_themes/f5_sphinx_theme/head.html
   checksum: 0015621086850fe2f0ae6af8d7b458db6011ec395c109f925f56059512522a1b
+- filename: docs/_themes/f5_sphinx_theme/opensearch.xml
+  checksum: 3301b14301acda4481b70b3fb1f17d27fb75d72f8d2af84ebd8332ff0cbb49ed
+- filename: docs/_themes/f5_sphinx_theme/static/js/bootstrap.js
+  checksum: 8a76ffbb2ff3ebbc4123bc4cdd19a28bb23d6d00db6433b65ff0d69958b9e879
+- filename: docs/_themes/f5_sphinx_theme/static/css/bootstrap.min.css
+  checksum: a13c9ab51fb85a8c3ed3dacd79cf7bf11e3c7d10094d43ff5c9c03a5e0fd0dc6

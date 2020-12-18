@@ -1183,7 +1183,10 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   .docs-container {
     margin-left: 0px;
   }
-
+  #sidebarCollapse {
+    visibility: hidden;
+    display: none;
+  }
   .site-article-inner {
     width: 100%;
   }

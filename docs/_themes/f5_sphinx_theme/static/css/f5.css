@@ -599,7 +599,7 @@ a.mysupport:hover {
 }
 .footer p,
 footer p a {
-  font-size: 11px;
+  font-size: 1px;
   color: #ABA9A9;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
@@ -865,32 +865,9 @@ footer p a {
     width: 28%;
   }
 }
-@media (max-width: 767px) {
-
-  .corp-header {
-    height: 40px;
-    background-color: #ebebeb;
-    border-bottom: 14px solid #0186be;
-  }
-
-    .pageHeader {
-      height: 80px;
-    }
-
-}
-
-@media (min-width: 768px) {
-
-  .corp-header {
-    height: 40px;
-    background-color: #ebebeb;
-  }
-
-   .pageHeader {
-      height: 80px;
-      border-bottom: 14px solid #0186be;
-   }
-
+.pageHeader {
+  height: 80px;
+  border-bottom: 14px solid #0186be;
 }
 .section {
   width: 100%;
@@ -5562,133 +5539,3 @@ body {
     background-color: #FFF;
     position: relative
 }
-
-/* Start of Coveo search bar in header */
-
-#search-toggle {
-  color: #fff;
-  background-color: #6a6c73;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 30px;
-  font-size: 20px;
-  transition: all .4s ease;
-  transition-property: all;
-  transition-duration: 0.4s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  cursor: pointer;
-}
-
-#search-toggle:hover {
-  background-color: #aeb0b0;
-}
-
-#search-container {
-  overflow: hidden;
-  height: 0px;
-  transition-property: height;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-  background: #000 url(https://cdn.f5.com/websites/support/assets/images/hero-herculon-lg.jpg) no-repeat center right;
-}
-
-#search-container .slideable_content {
-  margin: 0px !important;
-  padding: 0px !important;
-  border: 0px;
-}
-
-#search-container .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (max-width: 1200px) {
-  #search-container .container {
-      width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  #search-container .container {
-      width: 1280px !important;
-  }
-}
-
-#search-container #blue-banner {
-  position: relative;
-}
-
-#search-container #searchbox {
-  display: block;
-  padding: 15px 0;
-  margin: auto;
-  max-width: 700px;
-}
-
-#search-container .CoveoSearchbox {
-  height: 39px !important;
-}
-
-#search-container .CoveoSearchButton {
-  background: #fff;
-  height: 40px !important;
-}
-
-#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input .magic-box-underlay,
-#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input>input,
-#search-container .CoveoSearchbox .CoveoQuerybox .magic-box-input .magic-box-underlay,
-#search-container .CoveoSearchbox .CoveoQuerybox .magic-box-input>input {
-  height: 38px;
-  line-height: 10px;
-}
-
-#search-container .magic-box {
-  position: relative;
-  text-align: left;
-  color: #212121;
-}
-
-#search-container .magic-box-input {
-  height: 38px !important;
-}
-
-#search-container .CoveoSearchbox .magic-box .magic-box-input>input {
-  font-size: 14px;
-}
-
-#search-container .CoveoSearchbox .magic-box {
-    border: thin solid #bcc3ca;
-    border-radius: 2px;
-}
-
-#search-container .search-tips {
-  display: block;
-  position: absolute;
-  top: 24px;
-  left: 1020px;
-  width: 90px;
-}
-
-#search-container .search-tips a {
-  color: #fff!important;
-  font-size: .9em!important;
-  line-height: 18px;
-  text-decoration: none!important;
-
-}
-
-@media screen and (max-width: 1160px) {
-  #search-container .search-tips {
-      position: inherit;
-      top: inherit;
-      left: inherit;
-      margin: auto;
-      padding-bottom: 10px;
-  }
-}
-
-/* End of Coveo search bar in header */
