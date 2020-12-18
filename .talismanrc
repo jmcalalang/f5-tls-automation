@@ -1,9 +1,15 @@
 fileignoreconfig:
-- filename: docs/_themes/f5_sphinx_theme/head.html
-  checksum: 0015621086850fe2f0ae6af8d7b458db6011ec395c109f925f56059512522a1b
-- filename: docs/_themes/f5_sphinx_theme/opensearch.xml
-  checksum: 3301b14301acda4481b70b3fb1f17d27fb75d72f8d2af84ebd8332ff0cbb49ed
-- filename: docs/_themes/f5_sphinx_theme/static/js/bootstrap.js
-  checksum: 8a76ffbb2ff3ebbc4123bc4cdd19a28bb23d6d00db6433b65ff0d69958b9e879
+- filename: docs/_themes/f5_sphinx_theme/static/css/bootstrap.css
+  checksum: 650f6ebeee4b92e73ea51e049ddf7b9105bd414fc792e180b78a1161fc0a008c
+- filename: docs/_themes/f5_sphinx_theme/static/css/bootstrap-theme.css
+  checksum: 4e6890929a36b43d558586b68e34335b8e989e5db9fe7930219cd1fbaa7c2953
+- filename: docs/_themes/f5_sphinx_theme/static/css/bootstrap-theme.min.css
+  checksum: 920a427ce7cbedccd9731eff7b6666599b4ef11e0bf9e73397d4ad0c12847211
 - filename: docs/_themes/f5_sphinx_theme/static/css/bootstrap.min.css
-  checksum: a13c9ab51fb85a8c3ed3dacd79cf7bf11e3c7d10094d43ff5c9c03a5e0fd0dc6
+  checksum: 197aee29a6942f5fd4fe85ce7f64d5710f1ecf3a67c2149bbb33d37bfda5bb0f
+- filename: docs/_themes/f5_sphinx_theme/layout.html
+  checksum: 00b6398b26945ca90ce17c6defef03e64605c4652b4001fe56174e9dee27e03b
+- filename: docs/_themes/f5_sphinx_theme/static/js/bootstrap.js
+  checksum: ee5ccda5d5ce45e3b671877f538ccc5a2fb3ae1fba04705c9db0cb2db7b48fa5
+- filename: docs/_themes/f5_sphinx_theme/static/js/bootstrap.min.js
+  checksum: 0f87e6560a635d0acb17559d0966bdf2dba756354b2b41e03b0b2d9dd45d87eb

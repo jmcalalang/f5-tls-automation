@@ -6,7 +6,6 @@
   justify-content: center;
 }
 
-
 .panel-body > .list-group .btn {
   white-space: normal;
 }
@@ -599,7 +598,7 @@ a.mysupport:hover {
 }
 .footer p,
 footer p a {
-  font-size: 1px;
+  font-size: 11px;
   color: #ABA9A9;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
@@ -657,24 +656,18 @@ footer p a {
   background: #efefef;
 }
 #MainMenu > li {
-  height: 40px;
-  padding-top: 10px;
-}
-#MainMenu > li:first-of-type {
-  border-left: 1px solid #ccc;
-  padding-left: 10px;
+  margin-top: 10px;
+  height: 42px;
 }
 #MainMenu > li:hover::after {
   content: " ";
   display: block;
-  border-top: 3px solid #e21d38;
-  height: 20px;
+  border-bottom: 3px solid #e21d38;
 }
 .main-menu {
   float: left;
-  margin: 0 0 0 0;
-  padding: 0;
-  padding-top: 10px;
+  margin: 8px 0 0 0;
+  padding: 0 0 0 20px;
   margin-left: 10px;
 }
 .main-menu .message {
@@ -708,12 +701,12 @@ footer p a {
   margin: 0px 26px 0 4px;
   line-height: 21px;
   vertical-align: text-top;
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .main-menu li a {
-  color: #555;
-  font-weight: 700;
-  padding-top: 10px;
+  color: #000;
+  font-size: 16px;
+  text-transform: uppercase;
   text-decoration: none;
 }
 .main-menu li a:hover {
@@ -744,7 +737,7 @@ footer p a {
 }
 .main-menu li .arrow-up {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 45%;
   width: 0;
   height: 0;
@@ -822,7 +815,6 @@ footer p a {
   text-transform: none;
   line-height: 16px;
   padding-bottom: 4px;
-  padding-top: 4px;
 }
 .main-menu .submenu a .current {
   font-weight: bold;
@@ -867,7 +859,7 @@ footer p a {
 }
 .pageHeader {
   height: 80px;
-  border-bottom: 14px solid #0186be;
+  border-bottom: 4px solid #2270B3;
 }
 .section {
   width: 100%;
@@ -878,7 +870,7 @@ footer p a {
   margin-bottom: 24px;
 }
 img.logo {
-  margin: 8px 0 0 0;
+  margin: 12px 0 0 0;
   float: left;
   width: 45px;
   height: 42px;
@@ -892,8 +884,7 @@ img.logo.support {
 }
 /* ---------- corporate menu ----------  */
 .corp-header {
-  height: 40px;
-  background-color: #ebebeb;
+  height: 46px;
 }
 .corp-header .corp-menu li:before {
   content: "|";
@@ -913,10 +904,8 @@ img.logo.support {
 }
 .corp-header ul li a {
   padding: 0;
-  color: #000;
-  opacity: 0.7;
-  font-size: 12px;
-  font-weight: 700;
+  color: #808285;
+  font-size: 14px;
   text-transform: uppercase;
   transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
@@ -929,7 +918,7 @@ img.logo.support {
 .corp-header ul li {
   float: left;
   display: inline;
-  margin: 6px 6px 0 3px;
+  margin: 10px 6px 0 3px;
 }
 .corp-header ul li a:hover {
   opacity: 1;
