@@ -7,8 +7,9 @@ Welcome to F5 TLS Automation Documentation!
 =============================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
+   :glob:
 
    docs/intro/intro
    docs/venafi/ansible/ansible

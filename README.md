@@ -48,6 +48,11 @@ You represent further that each employee of the entity that submits contribution
 ### Development Contributions, this repository uses devcontainers
 
   ```
+  # https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
+  git config --global user.name "your_username"
+  git config --global user.email "your_email_address@example.com"
+  # https://git-scm.com/docs/git-add
   git add .
+  # https://pre-commit.com/
   pre-commit run -a -v
   ```
