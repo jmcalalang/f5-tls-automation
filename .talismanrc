@@ -13,3 +13,5 @@ fileignoreconfig:
   checksum: ee5ccda5d5ce45e3b671877f538ccc5a2fb3ae1fba04705c9db0cb2db7b48fa5
 - filename: docs/_themes/f5_sphinx_theme/static/js/bootstrap.min.js
   checksum: 0f87e6560a635d0acb17559d0966bdf2dba756354b2b41e03b0b2d9dd45d87eb
+- filename: docs/venafi/ansible/roles/deploy_certificate/tasks/main.yml
+  checksum: f89137e46f2eca92b3ca2d86058447ec2234fc4838774f6b1c11663a671b5d54
