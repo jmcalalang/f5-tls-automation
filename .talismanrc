@@ -15,3 +15,5 @@ fileignoreconfig:
   checksum: 0f87e6560a635d0acb17559d0966bdf2dba756354b2b41e03b0b2d9dd45d87eb
 - filename: docs/venafi/ansible/roles/deploy_certificate/tasks/main.yml
   checksum: f89137e46f2eca92b3ca2d86058447ec2234fc4838774f6b1c11663a671b5d54
+- filename: docs/venafi/ansible/roles/deploy_certificate/vars/vault.yml
+  checksum: 2104ddc856291ce4445f8b29b724c7e7892bd913488d085cd6edd0b6307cad21
