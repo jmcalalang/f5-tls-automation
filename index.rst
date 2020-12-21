@@ -10,6 +10,7 @@ This Project is a derivative of F5's "Automate One Thing" workshops. Its goal is
 
    docs/intro/intro
    docs/venafi/ansible/ansible
+   docs/venafi/as3/as3
    docs/contributors
 
 Indices and tables
