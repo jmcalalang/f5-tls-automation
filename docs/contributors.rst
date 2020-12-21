@@ -1,4 +1,7 @@
-Contributions from:
+Contributions
+=============
+
+from (Alphabetical):
 
 - Jon Calalang (jmcalalang_)
 
