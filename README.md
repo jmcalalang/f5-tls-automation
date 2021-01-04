@@ -20,6 +20,15 @@ You represent further that each employee of the entity that submits contribution
 ### Development Contributions, this repository uses devcontainers
 This project heavily uses the devcontainer solutions in vscode, if you are planning to contribute to the solution you will need to be familiar with those concepts.
 
+Documentation about Remote Development in Containers:
+
+
+- **https://code.visualstudio.com/docs/remote/containers-tutorial**
+- **https://code.visualstudio.com/docs/remote/containers**
+
+|image2|
+
+
   ```
   # https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
   git config --global user.name "your_username"
@@ -38,3 +47,5 @@ Please refer to the [F5 DevCentral Community Code of Conduct](code_of_conduct.md
 [Apache License 2.0](LICENSE)
 ## Copyright
 Copyright 2014-2020 F5 Networks Inc.
+
+.. |image2| image:: /docs/intro/images/image2.png
