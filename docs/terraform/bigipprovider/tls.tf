@@ -1,10 +1,10 @@
-resource "tls_private_key" "example" {
+resource "tls_private_key" "myprivatekey" {
   algorithm = "RSA"
 }
 
-resource "tls_self_signed_cert" "example" {
+resource "tls_self_signed_cert" "mycertificate" {
   key_algorithm   = "RSA"
-  private_key_pem = tls_private_key.example.private_key_pem
+  private_key_pem = tls_private_key.myprivatekey.private_key_pem
 
   subject {
     common_name  = "example.com"
