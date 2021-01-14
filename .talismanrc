@@ -23,3 +23,7 @@ fileignoreconfig:
   checksum: 9a0f66f55238360668ac2552ffa6cb90f46f3d92be4e0bf7f214c4a4c66b2e65
 - filename: docs/terraform/bigipprovider/bigipprovider.rst
   checksum: 2539813fbf4cf709cbd0c553910817e1f01dc4aa7a9e0035b38bc653dce5b894
+- filename: docs/letsencrypt/f5primarydns/f5dns/ansible.cfg
+  checksum: eaab73bb1572608c93531bfd14119c24c30fabca2f4fe983c162eb7605190f5b
+- filename: docs/letsencrypt/f5primarydns/f5dns/roles/f5dnsprimary_acme-challenge/tasks/main.yml
+  checksum: 4ec7b0e215af8a9463d702ae785cedb5c85511cc8a143192fafcf3d654a85dce
