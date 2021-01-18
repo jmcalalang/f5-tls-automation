@@ -1,5 +1,5 @@
-BIG-IP API with Ansible
-=======================
+BIG-IP Ansible Modules
+======================
 
 This task is designed to show pulling a certificate from a URL endpoint and publishing this into a BIG-IP. URL endpoint examples are great for their reusability. Most TLS management solutions will have an API endpoint which this module could consume hold in a fact and publish.
 

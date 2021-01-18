@@ -1,3 +1,5 @@
 fileignoreconfig:
 - filename: docs/ansible/main.yml
   checksum: 272e4635dc6692913eb26c311a239d68cf48681f66b02d716620b20dca4ea69e
+- filename: docs/postman/bigip_postman.rst
+  checksum: fc1d6a034a641bb419eca6a72255810c1b624b2eb9cbee7fc66c00a0cf36cd5d

@@ -1,5 +1,5 @@
-Terraform BIG-IP TLS Provider
-=============================
+BIG-IP Terraform Provider
+=========================
 
 Overview
 ----------------------------------
