@@ -31,4 +31,4 @@ https://raw.githubusercontent.com/jmcalalang/Certificates-and-Keys/master/Certif
 Environment:
 https://raw.githubusercontent.com/jmcalalang/Certificates-and-Keys/master/Certificates%20and%20Keys.postman_environment.json
 
-.. |image1| image:: image1.png
+.. |image1| image:: images/image1.png
