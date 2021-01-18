@@ -1,5 +1,7 @@
 ## Overview
 This Project is a derivative of F5's "Automate One Thing" workshops. Its goal is to build a central example repository for Secrets management on F5 products (BIG-IP, NGINX, F5 Cloud Services, etc). Within the solution you will find examples of TLS automation for different integrations across different platforms.
+
+Guide is located here: https://f5-tls-automation.readthedocs.io/
 ## Getting Started
 Each platform example is isolated within this project. Meaning, you do not need to consume the whole project for a simple task. Navigate to the solution you would like to implement and all documentation and examples are contained within.
 ## Installation
@@ -28,7 +30,6 @@ Documentation about Remote Development in Containers:
 
 |image2|
 
-
   ```
   # https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
   git config --global user.name "your_username"
@@ -48,4 +49,4 @@ Please refer to the [F5 DevCentral Community Code of Conduct](code_of_conduct.md
 ## Copyright
 Copyright 2014-2020 F5 Networks Inc.
 
-.. |image2| image:: /docs/intro/images/image2.png
+![image2](/docs/intro/images/image2.png)
