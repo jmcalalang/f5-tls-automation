@@ -5,3 +5,7 @@ fileignoreconfig:
   checksum: fc1d6a034a641bb419eca6a72255810c1b624b2eb9cbee7fc66c00a0cf36cd5d
 - filename: docs/ansible/main.yml
   checksum: c0a2ffd39bfbb8cb2ea95c17a2fd998cc1fb03f16586c625e58260df8f579af0
+- filename: docs/venafi/main.yml
+  checksum: 2fdf3007e31297f33afdc7f480b44a5589c8536744b903b37160fc7e15904613
+- filename: docs/ansible/main.yml
+  checksum: 0e17f5c678ffab8f8ad387f34f1c6211f175319ebd04c055ca5ed5f6f98e613e

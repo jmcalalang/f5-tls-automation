@@ -1,11 +1,11 @@
-BIG-IP Ansible Modules
+Venafi Ansible Modules
 ======================
 
-This task is designed to show pulling a certificate from a URL endpoint and publishing this into a BIG-IP. URL endpoint examples are great for their reusability. Most TLS management solutions will have an API endpoint which this module could consume hold in a fact and publish.
+This task is designed to show pulling a certificate from a Venfai certificate mananagement solution and publishing into a BIG-IP. Venfai solutions offer BASIC auth as a mechanism to access the solution.
 
 **Tested with Ansible 2.10**
 
-- Pull Certificates/Key from URL
+- Pull Certificates/Key from Venafi API
 - Store Certificates/Key in location
 - Upload Certificates/Key to BIG-IP
 - Create SSL Profile on BIG-IP
