@@ -1,8 +1,9 @@
 Contributions
 =============
 
-Amazing contributions from (Alphabetical):
+Amazing contributions from:
 
+(Alphabetical)
 - Jon Calalang (jmcalalang_)
 - Michael OLeary (mikeoleary_)
 - Vlad Bojkovic (vbojko_)
