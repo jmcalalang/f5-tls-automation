@@ -1,37 +1,16 @@
 ---
 
-# Created by - Jon Calalang
-# This task comes with no warrenty or support
-# Modules used:
+#    Created by - Jon Calalang
+#    This task comes with no warrenty or support
+#    Modules used:
 #
-# bigip_profile_server_ssl
-# bigip_monitor_https
-# bigip_pool
-# bigip_pool_member - ***NOTE*** When creating a new pool member, one of either address or fqdn must be provided. This parameter cannot be updated after it is set.
-# bigip_virtual_server
+#    get_url
+#    bigip_profile_server_ssl
+#    ansible.builtin.file
 #
-# Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
+#    Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
 #
-#
-
-- name: Copy Certificate and Key from URL
-  hosts: localhost
-  gather_facts: False
-  connection: local
-
-  vars:
-    provider:
-      server: fqdn.bigip.com
-      user: admin
-      password: password
-      validate_certs: no
-      server_port: 443
-    partition: "Common"
-    application_name: ""
-    state: "present"
-
-  tasks:
-# Use for Basic Auth
+#    Use for Basic Auth
 #    - name: < Fetch file that requires authentication.
 #            username/password only available since 2.8, in older versions you need to use url_username/url_password
 #      get_url:
@@ -40,49 +19,91 @@
 #        username: bar
 #        password: '{{ mysecret }}'
 
+- name: Copy Certificate and Key from URL create BIG-IP Server SSL Profile
+  hosts: localhost
+  gather_facts: False
+  connection: local
+
+  vars:
+    provider:
+      server: 'fqdn.bigip.com'
+      user: 'admin'
+      password: 'password'
+      validate_certs: no
+      server_port: 443
+    partition: 'Common'
+    application_name: ''
+    state: 'present'
+    certurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/chain.crt'
+    cachainurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/chain.crt'
+    keyurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/default.key'
+
+  tasks:
+
     - name: Download Key
       get_url:
-        url: http://example.com/path/key.pem
-      register: key.pem
+        url: '{{ keyurl }}'
+        dest: '{{ playbook_dir }}/{{ application_name }}.key'
 
     - name: Download Certificate
       get_url:
-        url: http://example.com/path/cert.pem
-      register: cert.pem
+        url: '{{ certurl }}'
+        dest: '{{ playbook_dir }}/{{ application_name }}.crt'
 
-    - name: Download Certificate Auth
+    - name: Download CA Chain
       get_url:
-        url: http://example.com/path/cert.pem
-      register: ca_chain.pem
+        url: '{{ cachainurl }}'
+        dest: '{{ playbook_dir }}/{{ application_name }}_cachain.crt'
 
-    - name: Import both key and cert
-      bigip_ssl_key_cert:
-        provider: "{{ provider }}"
-        partition: "{{ partition }}"
-        state: "{{ state }}"
-        ## {{ cert.pem }} if this can be used it would be better, or delete the files
-        key_content: "{{ lookup('file', '{{ playbook_dir }}/files/cert.pem') }}"
-        key_name: ansible-key-example
-        cert_content: "{{ lookup('file', '{{ playbook_dir }}/files/key.pem') }}"
-        cert_name: ansible-cert-example
+    - name: Use a file lookup to import Key
+      bigip_ssl_key:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ application_name}}_bundle'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ application_name }}.key') }}"
       delegate_to: localhost
 
-    - name: Use a file lookup to import CA certificate chain
+    - name: Use a file lookup to import Certificate
       bigip_ssl_certificate:
-        provider: "{{ provider }}"
-        partition: "{{ partition }}"
-        name: ansible-ca-chain-example
-        state: "{{ state }}"
-        content: "{{ lookup('file', '{{ playbook_dir }}/files/ca-chain.pem') }}"
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ application_name}}_bundle'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ application_name }}.crt') }}"
+      delegate_to: localhost
+
+    - name: Use a file lookup to import CA Chain
+      bigip_ssl_certificate:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ application_name}}_cachain'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ application_name }}_cachain.crt') }}"
       delegate_to: localhost
 
     - name: Create a server SSL profile with a cert/key/chain setting
       bigip_profile_server_ssl:
-        provider: "{{ provider }}"
-        partition: "{{ partition }}"
-        name: "tls_profile_{{application_name}}"
-        state: "{{ state }}"
-        key: /Common/ansible-key-example.key
-        certificate: /Common/ansible-key-example.crt
-        chain: /Common/ansible-ca-chain-example.crt
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: 'tls_profile_{{application_name}}'
+        state: '{{ state }}'
+        key: '/{{ partition }}/{{ application_name}}_bundle'
+        certificate: '/{{ partition }}/{{ application_name}}_bundle'
+        chain: '/{{ partition}}/{{ application_name}}_cachain'
       delegate_to: localhost
+
+    - name: Remove Certificate
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ application_name }}.crt'
+        state: absent
+
+    - name: Remove CA Chain
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ application_name }}_cachain.crt'
+        state: absent
+
+    - name: Remove Key
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ application_name }}.key'
+        state: absent
