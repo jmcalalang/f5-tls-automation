@@ -1,7 +1,7 @@
 Venafi Ansible Modules
 ======================
 
-This task is designed to show pulling a certificate from a Venfai certificate mananagement solution and publishing into a BIG-IP. Venfai solutions offer BASIC auth as a mechanism to access the solution.
+This task is designed to show pulling a certificates/keys from a Venafi Certificate Mananagement solution and publish into a BIG-IP. Venfai solutions offer BASIC auth as a mechanism to access their platform.
 
 **Tested with Ansible 2.10**
 
