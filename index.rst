@@ -15,7 +15,7 @@ This Project is a derivative of F5s *Automate One Thing* workshop. Its goal is t
    docs/postman/postman
    docs/letsencrypt/f5primarydns/f5primarydns
    docs/terraform/bigipprovider/bigipprovider
-   docs/venafi/ansible/venafi
+   docs/venafi/venafi
    docs/contributors
 
 Indices and tables
