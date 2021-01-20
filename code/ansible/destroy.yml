@@ -10,8 +10,16 @@
 #
 #    Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
 #
+#    Use for Basic Auth
+#    - name: < Fetch file that requires authentication.
+#            username/password only available since 2.8, in older versions you need to use url_username/url_password
+#      get_url:
+#        url: http://example.com/path/file.conf
+#        dest: /etc/foo.conf
+#        username: bar
+#        password: '{{ mysecret }}'
 
-- name: Copy Certificate and Key from Venafi create BIG-IP Server SSL Profile
+- name: destroy Certificate/Key and Server SSL Profile from BIG-IP
   hosts: localhost
   gather_facts: False
   connection: local
@@ -25,12 +33,10 @@
       server_port: 443
     partition: 'Common'
     application_name: 'bigip_example_application'
-    state: 'present'
-    certurl: 'https://example.venafi.com/chain.crt'
-    cachainurl: 'https://example.venafi.com/chain.crt'
-    keyurl: 'https://example.venafi.com/default.key'
-    venafiuser: 'username'
-    venafipassword: 'password'
+    state: 'absent'
+    certurl: 'https://example.f5.com/chain.crt'
+    cachainurl: 'https://example.f5.com/chain.crt'
+    keyurl: 'https://example.f5.com/default.key'
 
   tasks:
 
@@ -38,22 +44,28 @@
       get_url:
         url: '{{ keyurl }}'
         dest: '{{ playbook_dir }}/{{ application_name }}.key'
-        username: '{{ venafiuser }}'
-        password: '{{ venafipassword }}'
 
     - name: Download Certificate
       get_url:
         url: '{{ certurl }}'
         dest: '{{ playbook_dir }}/{{ application_name }}.crt'
-        username: '{{ venafiuser }}'
-        password: '{{ venafipassword }}'
 
     - name: Download CA Chain
       get_url:
         url: '{{ cachainurl }}'
         dest: '{{ playbook_dir }}/{{ application_name }}_cachain.crt'
-        username: '{{ venafiuser }}'
-        password: '{{ venafipassword }}'
+
+    - name: Delete a client SSL profile with a cert/key/chain setting
+      bigip_profile_client_ssl:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: 'tls_profile_{{application_name}}'
+        state: '{{ state }}'
+        cert_key_chain:
+          - cert: '/{{ partition }}/{{ application_name}}_bundle'
+            key: '/{{ partition }}/{{ application_name}}_bundle'
+            chain: '/{{ partition}}/{{ application_name}}_cachain'
+      delegate_to: localhost
 
     - name: Use a file lookup to import Key
       bigip_ssl_key:
@@ -80,18 +92,6 @@
         name: '{{ application_name}}_cachain'
         state: '{{ state }}'
         content: "{{ lookup('file', '{{ playbook_dir }}/{{ application_name }}_cachain.crt') }}"
-      delegate_to: localhost
-
-    - name: Create a client SSL profile with a cert/key/chain setting
-      bigip_profile_client_ssl:
-        provider: '{{ provider }}'
-        partition: '{{ partition }}'
-        name: 'tls_profile_{{application_name}}'
-        state: '{{ state }}'
-        cert_key_chain:
-          - cert: '/{{ partition }}/{{ application_name}}_bundle'
-            key: '/{{ partition }}/{{ application_name}}_bundle'
-            chain: '/{{ partition}}/{{ application_name}}_cachain'
       delegate_to: localhost
 
     - name: Remove Key

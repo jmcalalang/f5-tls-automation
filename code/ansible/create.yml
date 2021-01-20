@@ -5,7 +5,7 @@
 #    Modules used:
 #
 #    get_url
-#    bigip_profile_server_ssl
+#    bigip_profile_client_ssl
 #    ansible.builtin.file
 #
 #    Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
@@ -82,15 +82,16 @@
         content: "{{ lookup('file', '{{ playbook_dir }}/{{ application_name }}_cachain.crt') }}"
       delegate_to: localhost
 
-    - name: Create a server SSL profile with a cert/key/chain setting
-      bigip_profile_server_ssl:
+    - name: Create a client SSL profile with a cert/key/chain setting
+      bigip_profile_client_ssl:
         provider: '{{ provider }}'
         partition: '{{ partition }}'
         name: 'tls_profile_{{application_name}}'
         state: '{{ state }}'
-        key: '/{{ partition }}/{{ application_name}}_bundle'
-        certificate: '/{{ partition }}/{{ application_name}}_bundle'
-        chain: '/{{ partition}}/{{ application_name}}_cachain'
+        cert_key_chain:
+          - cert: '/{{ partition }}/{{ application_name}}_bundle'
+            key: '/{{ partition }}/{{ application_name}}_bundle'
+            chain: '/{{ partition}}/{{ application_name}}_cachain'
       delegate_to: localhost
 
     - name: Remove Key

@@ -1,7 +1,13 @@
 fileignoreconfig:
 - filename: code/files/certs/testapp.f5.demo.key
-  checksum: a77a5058c212d8afbcba4567cf8b4a57c4c47536f763e580c8b91739b7a567c7
+  checksum: 21426fe1cb0c1c840082ff8e2f0343b9220df752192492605d19c18c1bde06f4
 - filename: code/files/certs/testapp.f5.demo.crt
-  checksum: 8d64e4c189e0d320bbc4010f777fc3b4b8a8cc3f20da8fa4ca3789f4bbc4fa57
-- filename: code/files/certs/testapp.f5.ca.crt
-  checksum: 3fe33b8615810ff95adc209bf9d96d7489baeb6fe906fc0387481335b95c40b0
+  checksum: c8d73a6d56da57e83ba354d314676d4bbb1e769170913c6860dcf78feef291e7
+- filename: code/files/certs/testapp.f5.chain.crt
+  checksum: 0b3337c8910089d1178b16251c8fe6e1b480e2be83db83f16ea965754f4f7618
+- filename: code/venafi/main.yml
+  checksum: 56d1860441a6bc3623838fe3014e617f13eebb3bd28c590ded74055e1c05edb9
+- filename: code/ansible/main.yml
+  checksum: 9724be3d937438f675de8edf9f3466efe593ab592904e411a986f050c524e56e
+- filename: code/ansible/destroy.yml
+  checksum: cf7a42995a70680a8ad70b56d78d40873cb36bf09c4be5ff1bf7cf36a9344390

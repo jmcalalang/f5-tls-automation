@@ -19,7 +19,14 @@ Clone the repository, or copy main.yml below, modify the task for correct variab
 
 .. note:: Tested with Ansible 2.10
 
-**ansible-playbook main.yml**
+**ansible-playbook create.yml** or **ansible-playbook destroy.yml**
 
-.. literalinclude :: main.yml
+Create Task:
+
+.. literalinclude :: create.yml
+   :language: yaml
+
+Destroy Task:
+
+.. literalinclude :: destroy.yml
    :language: yaml
