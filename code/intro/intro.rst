@@ -14,7 +14,7 @@ Example:
 BIG-IP with Ansible
 
 - clone repository
-- navigate to /docs/ansible
+- navigate to /code/ansible
 - follow instructions
 
 
