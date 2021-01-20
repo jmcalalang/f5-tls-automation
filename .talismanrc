@@ -1,1 +1,7 @@
 fileignoreconfig:
+- filename: code/files/certs/testapp.f5.demo.key
+  checksum: a77a5058c212d8afbcba4567cf8b4a57c4c47536f763e580c8b91739b7a567c7
+- filename: code/files/certs/testapp.f5.demo.crt
+  checksum: 8d64e4c189e0d320bbc4010f777fc3b4b8a8cc3f20da8fa4ca3789f4bbc4fa57
+- filename: code/files/certs/testapp.f5.ca.crt
+  checksum: 3fe33b8615810ff95adc209bf9d96d7489baeb6fe906fc0387481335b95c40b0
