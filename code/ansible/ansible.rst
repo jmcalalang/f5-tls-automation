@@ -1,32 +1,58 @@
 BIG-IP Ansible Modules
 ======================
 
-This task is designed to show pulling Certificates/Keys from a URL endpoint and publishing this into a BIG-IP. URL endpoint examples are remarkable for their reusability. Most TLS management solutions will have an API endpoint, which this module can consume.
+.. note:: Tested with Ansible 2.10
 
-.. note:: If you dont want to pull the Certificates/Keys from a URL, you can remove that part of the task and have them local to the playbook.
+This task is designed to pull Certificates/Keys from a URL endpoint and publish them into a BIG-IP. URL endpoint examples are remarkable for their reusability. Most TLS management or secrets solutions will also provide an API endpoint, which this module can consume.
+
+.. note:: If you do not want to pull the Certificates/Keys from a URL, you can remove that part of the task and have them local to the playbook.
 
 Steps of the task:
 
-- Pull Certificates/Key from URL
-- Store Certificates/Key in location
+- Pull Certificates/Key from URL to local path
 - Upload Certificates/Key to BIG-IP
 - Create SSL Profile on BIG-IP
-- Delete Certificates/Key from playbook path
+- Delete Certificates/Key from the local path
 
 .. warning:: This task will delete files, its designed this way, so Certificates/Keys are not left residually
 
-Clone the repository, or copy main.yml below, modify the task for correct variables.
+Clone the repository to have the examples local, or copy the example below. Task modification should not be necessary. However, you need to update the variables to your environment.
 
-.. note:: Tested with Ansible 2.10
++------------------------+----------------------------------------------------------------+
+| vars                   | Variables Needed for Task                                      |
++========================+================================================================+
+| bigips:                | Array of BIG-IP Targets                                        |
++------------------------+----------------------------------------------------------------+
+| provider:              | BIG-IP information                                             |
++------------------------+----------------------------------------------------------------+
+| server:                | References ``bigips`` leave as default value ``'{{ item }}'``  |
++------------------------+----------------------------------------------------------------+
+| user:                  | BIG-IP Username                                                |
++------------------------+----------------------------------------------------------------+
+| password:              | BIG-IP Password                                                |
++------------------------+----------------------------------------------------------------+
+| validate_certs:        | Validate BIG-IP Management Certificate                         |
++------------------------+----------------------------------------------------------------+
+| server_port:           | BIG-IP Connectivity Port                                       |
++------------------------+----------------------------------------------------------------+
+| partition:             | BIG-IP Partition for Objects                                   |
++------------------------+----------------------------------------------------------------+
+| domain_name:           | FQDN of Certificate Object                                     |
++------------------------+----------------------------------------------------------------+
+| state:                 | Object state ``present`` is create ``absent`` is delete        |
++------------------------+----------------------------------------------------------------+
+| certurl:               | URL for Certificate                                            |
++------------------------+----------------------------------------------------------------+
+| cachainurl:            | URL for Key                                                    |
++------------------------+----------------------------------------------------------------+
+| keyurl:                | URL for CA Chain                                               |
++------------------------+----------------------------------------------------------------+
+| keypassphrase:         | Key Passphrase ``this variable is optional``                   |
++------------------------+----------------------------------------------------------------+
 
-**ansible-playbook create.yml** or **ansible-playbook destroy.yml**
+Run: **ansible-playbook main.yml**
 
-Create Task:
+Task:
 
-.. literalinclude :: create.yml
-   :language: yaml
-
-Destroy Task:
-
-.. literalinclude :: destroy.yml
+.. literalinclude :: main.yml
    :language: yaml

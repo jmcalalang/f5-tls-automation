@@ -1,0 +1,175 @@
+---
+
+#    Created by - Jon Calalang
+#    This task comes with no warrenty or support
+#
+#    Modules used:
+#
+#    - get_url
+#    - bigip_profile_client_ssl
+#    - bigip_ssl_key
+#    - ansible.builtin.file
+#
+#    Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
+#
+
+- name: Copy Certificate and Key from URL and create BIG-IP Client SSL Profile
+  hosts: localhost
+  gather_facts: False
+  connection: local
+
+  vars:
+    bigips: [bigip.fqdn.com]
+    provider:
+      server: '{{ item }}'
+      user: 'admin'
+      password: 'password'
+      validate_certs: no
+      server_port: 443
+    partition: 'Common'
+    domain_name: 'example.domain.com'
+    state: 'present'
+    certurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/default.crt'
+    cachainurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/chain.crt'
+    keyurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/default.key'
+    keypassphrase: ''
+
+  tasks:
+
+# Download Local Files
+
+    - name: Download Local Key
+      get_url:
+        url: '{{ keyurl }}'
+        dest: '{{ playbook_dir }}/{{ domain_name }}.key'
+      when: state == "present"
+
+    - name: Download Local Certificate
+      get_url:
+        url: '{{ certurl }}'
+        dest: '{{ playbook_dir }}/{{ domain_name }}.crt'
+      when: state == "present"
+
+    - name: Download Local CA Chain
+      get_url:
+        url: '{{ cachainurl }}'
+        dest: '{{ playbook_dir }}/{{ domain_name }}_cachain.crt'
+      when: state == "present"
+
+# Delete Objects
+
+    - name: Delete a Client SSL profile
+      bigip_profile_client_ssl:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: 'tls_profile_{{domain_name}}'
+        state: '{{ state }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Delete SSL Key
+      bigip_ssl_key:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_bundle'
+        state: '{{ state }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Delete SSL Certificate
+      bigip_ssl_certificate:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_bundle'
+        state: '{{ state }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Delete SSL CA Chain
+      bigip_ssl_certificate:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_cachain'
+        state: '{{ state }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
+
+# Create Objects
+
+    - name: Import SSL Key
+      bigip_ssl_key:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_bundle'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ domain_name }}.key') }}"
+      delegate_to: localhost
+      when: state == "present"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Import SSL Certificate
+      bigip_ssl_certificate:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_bundle'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ domain_name }}.crt') }}"
+      delegate_to: localhost
+      when: state == "present"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Import SSL CA Chain
+      bigip_ssl_certificate:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: '{{ domain_name}}_cachain'
+        state: '{{ state }}'
+        content: "{{ lookup('file', '{{ playbook_dir }}/{{ domain_name }}_cachain.crt') }}"
+      delegate_to: localhost
+      when: state == "present"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Create a Client SSL profile with a cert/chain/key
+      bigip_profile_client_ssl:
+        provider: '{{ provider }}'
+        partition: '{{ partition }}'
+        name: 'tls_profile_{{domain_name}}'
+        state: '{{ state }}'
+        cert_key_chain:
+          - cert: '/{{ partition }}/{{ domain_name}}_bundle'
+            key: '/{{ partition }}/{{ domain_name}}_bundle'
+            chain: '/{{ partition}}/{{ domain_name}}_cachain'
+            passphrase: '{{ keypassphrase }}'
+      delegate_to: localhost
+      when:
+        - state == "present"
+      with_items:
+        - '{{ bigips }}'
+
+# Remove Local Files
+
+    - name: Remove Local Key
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ domain_name }}.key'
+        state: absent
+
+    - name: Remove Local Certificate
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ domain_name }}.crt'
+        state: absent
+
+    - name: Remove Local CA Chain
+      ansible.builtin.file:
+        path: '{{ playbook_dir }}/{{ domain_name }}_cachain.crt'
+        state: absent
