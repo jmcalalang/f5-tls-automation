@@ -1,11 +1,5 @@
 fileignoreconfig:
-- filename: code/ansible/ansible.rst
-  checksum: 972462fc1b9aa14f4b8fd66fe17f83c7911580b244e40194322f2186ab4a3670
-- filename: code/ansible/main.yml
-  checksum: fa9bc0e9ed4a6b9ef0b1731d8d54a14eb8284505dbb56b5624faf062417490b8
 - filename: code/venafi/main.yml
-  checksum: 7128a9ee860d0d568cffa2e91bc85578597a04a34b4e02afa6e074e524fdd219
-- filename: code/venafi/venafi.rst
-  checksum: e88c73575e4a2093e0bc58d6b289e44343c9e88229ff752352b8b1b2dbb4ac4a
+  checksum: 2e5147c475e1c8bbcf3bb56bcef4383b00cd92594a004f14720cf42d3f225a45
 - filename: code/ansible/main.yml
-  checksum: dbab55ad61a6b3f00fbe052744bca1502f466ffb92b28dd58369476ded327f2b
+  checksum: 8d44cf61645f8583e899576a98078eb6f49eaa9af2af6390779e1d35ad8e204c

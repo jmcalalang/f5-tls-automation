@@ -116,13 +116,35 @@
         dest: "{{ playbook_dir }}/{{ certificatename }}.crt"
       when: state == "present"
 
+    - name: Revoke auth token from {{ venafi }}
+      delegate_to: localhost
+      uri:
+        method: Get
+        url: "https://{{ venafi }}/vedauth/revoke/token"
+        status_code: 200
+        validate_certs: no
+        headers:
+          Authorization: Bearer {{ venafi_auth_response }}
+      retries: 30
+      delay: 5
+      when: state == "present"
+
 # Delete Objects
+
+    - name: Wait a maximum of 300 seconds for BIG-IP to be ready to take configuration
+      bigip_wait:
+        timeout: 300
+        provider: '{{ provider }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
 
     - name: Delete a Client SSL profile
       bigip_profile_client_ssl:
         provider: '{{ provider }}'
         partition: '{{ partition }}'
-        name: 'tls_profile_{{domainname}}'
+        name: 'tls_profile_{{ domainname }}'
         state: '{{ state }}'
       delegate_to: localhost
       when: state == "absent"
@@ -133,7 +155,7 @@
       bigip_ssl_key:
         provider: '{{ provider }}'
         partition: '{{ partition }}'
-        name: '{{ domainname}}_bundle'
+        name: '{{ domainname }}_bundle'
         state: '{{ state }}'
       delegate_to: localhost
       when: state == "absent"
@@ -144,14 +166,32 @@
       bigip_ssl_certificate:
         provider: '{{ provider }}'
         partition: '{{ partition }}'
-        name: '{{ domainname}}_bundle'
+        name: '{{ domainname }}_bundle'
         state: '{{ state }}'
       delegate_to: localhost
       when: state == "absent"
       with_items:
         - '{{ bigips }}'
 
+    - name: Save the running configuration of the BIG-IP
+      bigip_config:
+        save: yes
+        provider: '{{ provider }}'
+      delegate_to: localhost
+      when: state == "absent"
+      with_items:
+        - '{{ bigips }}'
+
 # Create Objects
+
+    - name: Wait a maximum of 300 seconds for BIG-IP to be ready to take configuration
+      bigip_wait:
+        timeout: 300
+        provider: '{{ provider }}'
+      delegate_to: localhost
+      when: state == "present"
+      with_items:
+        - '{{ bigips }}'
 
     - name: Import SSL Key
       bigip_ssl_key:
@@ -181,15 +221,24 @@
       bigip_profile_client_ssl:
         provider: '{{ provider }}'
         partition: '{{ partition }}'
-        name: 'tls_profile_{{domainname}}'
+        name: 'tls_profile_{{ domainname }}'
         state: '{{ state }}'
         cert_key_chain:
-          - cert: '/{{ partition }}/{{ domainname}}_bundle'
-            key: '/{{ partition }}/{{ domainname}}_bundle'
+          - cert: '/{{ partition }}/{{ domainname }}_bundle'
+            key: '/{{ partition }}/{{ domainname }}_bundle'
             passphrase: '{{ keypassphrase }}'
       delegate_to: localhost
       when:
         - state == "present"
+      with_items:
+        - '{{ bigips }}'
+
+    - name: Save the running configuration of the BIG-IP
+      bigip_config:
+        save: yes
+        provider: '{{ provider }}'
+      delegate_to: localhost
+      when: state == "present"
       with_items:
         - '{{ bigips }}'
 
@@ -199,13 +248,16 @@
       ansible.builtin.file:
         path: '{{ playbook_dir }}/{{ domainname }}.key'
         state: absent
+      when: state == "present"
 
     - name: Remove Local Certificate
       ansible.builtin.file:
         path: '{{ playbook_dir }}/{{ domainname }}.crt'
         state: absent
+      when: state == "present"
 
     - name: Remove Local CA Chain
       ansible.builtin.file:
         path: '{{ playbook_dir }}/{{ domainname }}_cachain.crt'
         state: absent
+      when: state == "present"
