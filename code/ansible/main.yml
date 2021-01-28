@@ -29,9 +29,9 @@
     partition: 'Common'
     domain_name: 'example.domain.com'
     state: 'present'
-    certurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/default.crt'
-    cachainurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/chain.crt'
-    keyurl: 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/develop/files/certs/default.key'
+    keyurl: 'https://raw.githubusercontent.com/jmcalalang/f5-tls-automation/main/code/files/certs/testapp.f5.demo.key'
+    certurl: 'https://raw.githubusercontent.com/jmcalalang/f5-tls-automation/main/code/files/certs/testapp.f5.demo.crt'
+    cachainurl: 'https://raw.githubusercontent.com/jmcalalang/f5-tls-automation/main/code/files/certs/testapp.f5.chain.crt'
     keypassphrase: ''
 
   tasks:

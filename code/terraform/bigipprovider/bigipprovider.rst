@@ -10,7 +10,7 @@ How to use this example
 
 Prerequisites
 ^^^^^^^^^^^^^^
-You will need a running BIG-IP, and you will need to know the admin username and password. 
+You will need a running BIG-IP, and you will need to know the admin username and password.
 
 Instructions
 ^^^^^^^^^^^^^^
@@ -27,27 +27,25 @@ Overview of files
 Unless you want advanced configurations, these file does not need to be edited. The below serves for an explanation of the files only.
 
 **variables.tf**
-| This file defines the variables that you will be prompted for when you run the ``terraform apply`` command. 
+| This file defines the variables that you will be prompted for when you run the ``terraform apply`` command.
 
 .. literalinclude :: variables.tf
    :language: hcl
 
 **providers.tf**
-| This file configures the BIG-IP provider based on the inputs to the prompts in your ``terraform apply`` command. 
+| This file configures the BIG-IP provider based on the inputs to the prompts in your ``terraform apply`` command.
 
 .. literalinclude :: providers.tf
    :language: hcl
 
 **tls.tf**
-| This file simply creates a temporary, throwaway SSL certificate for use in this demo. 
+| This file simply creates a temporary, throwaway SSL certificate for use in this demo.
 
 .. literalinclude :: tls.tf
    :language: hcl
 
 **bigip_config.tf**
-| This file contains the resources that configure the BIG-IP, including the installation of the SSL certificate created, and the creation of the SSL profile. 
+| This file contains the resources that configure the BIG-IP, including the installation of the SSL certificate created, and the creation of the SSL profile.
 
 .. literalinclude :: bigip_config.tf
    :language: hcl
-
-
