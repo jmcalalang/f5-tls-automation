@@ -15,7 +15,7 @@
 #    Module Documentation: https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
 #
 
-- name: Copy Certificate and Key from URL and create BIG-IP Client SSL Profile
+- name: Export Certificate and Key from Venafi and create BIG-IP Client SSL Profile
   hosts: localhost
   gather_facts: False
   connection: local
