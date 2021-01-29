@@ -16,12 +16,12 @@ Steps of the task:
 
 .. warning:: This task will delete files, its designed this way, so Certificates/Keys are not left residually
 
-Clone the repository to have the examples local, or copy the example below. Task modification should not be necessary. However, you need to update the variables to your environment.
+Clone the repository to have the examples local, or copy the example code below. Task modification should not be necessary. However, you need to update the variables to your environment.
 
 +------------------------+----------------------------------------------------------------+
 | vars                   | Variables Needed for Task                                      |
 +========================+================================================================+
-| bigips:                | Array of BIG-IP Targets                                        |
+| bigips:                | Array of BIG-IP Targets (IP or FQDN)                           |
 +------------------------+----------------------------------------------------------------+
 | provider:              | BIG-IP information                                             |
 +------------------------+----------------------------------------------------------------+

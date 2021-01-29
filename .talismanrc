@@ -1,6 +1,6 @@
 fileignoreconfig:
-- filename: code/ansible/ansible.rst
-  checksum: 972462fc1b9aa14f4b8fd66fe17f83c7911580b244e40194322f2186ab4a3670
+- filename: code/venafi/main.yml
+  checksum: 2e5147c475e1c8bbcf3bb56bcef4383b00cd92594a004f14720cf42d3f225a45
 - filename: code/ansible/main.yml
   checksum: fa9bc0e9ed4a6b9ef0b1731d8d54a14eb8284505dbb56b5624faf062417490b8
 - filename: code/letsencrypt/example_ansible_env/playbooks/roles/f5cs_dns_letsencrypt_bigip/tasks/prepare_environment.yml
