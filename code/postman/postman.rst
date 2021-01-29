@@ -1,5 +1,5 @@
-BIG-IP Postman Collection
-=========================
+BIG-IP - Postman Collection
+===========================
 
 This Postman Collection and Environment Variable setup contains the needed pieces to bring in Certs and Keys to a BIG-IP via REST. Cert and Key needs to be available from URL source (http://key.key, http://cert.crt). Along with the import of the certificate & Key, this Collection can also be used for Client-SSL Profile creation and applying to a Virtual Server.
 

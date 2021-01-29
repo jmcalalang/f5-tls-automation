@@ -1,5 +1,5 @@
-BIG-IP Terraform Provider
-=========================
+BIG-IP - Terraform Provider
+===========================
 
 Overview
 ----------------------------------
