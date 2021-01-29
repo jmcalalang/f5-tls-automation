@@ -116,8 +116,6 @@ Example Ansible environment:
 An example ansible environment can be here: `Ansible Environment`_
 
 
-
-
-
 .. _`Ansible Roles`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/roles
+
 .. _`Ansible Environment`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/example_ansible_env

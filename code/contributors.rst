@@ -5,6 +5,7 @@ Amazing contributions from:
 
 (Alphabetical)
 - Jon Calalang (jmcalalang_)
+- Aaron Laws
 - Michael OLeary (mikeoleary_)
 - Vlad Bojkovic (vbojko_)
 
