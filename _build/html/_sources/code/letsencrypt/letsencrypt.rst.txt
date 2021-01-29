@@ -110,13 +110,13 @@ To upload the key to multiple BIG-IP instances perform followong steps:
 2. create a var group with the same name in the hosts :file:`
 
 .. literalinclude :: hosts_multiple
-   :language: yaml`
+   :language: yaml`  
 
 3. create a host_vars folder and add vars file for each BIG-IP in the "bigip_group"
 use following content for each file and adjust the var values accordingly
 
 .. literalinclude :: example_bigip
-   :language: yaml`
+   :language: yaml`  
 
 Example Run command:
 ********************

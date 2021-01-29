@@ -3,7 +3,7 @@
 - include_tasks: prepare_environment.yml
 
 - name: check if certificate exists, if exist then do not create the same cert/key pair
-  stat: 
+  stat:
     path: "{{ letsencrypt_certs_dir }}/{{ domain_name }}.crt"
   register: cert_exist_result
 
