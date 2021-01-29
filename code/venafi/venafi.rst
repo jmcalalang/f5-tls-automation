@@ -1,5 +1,5 @@
-Venafi Ansible Modules
-======================
+BIG-IP - Venafi
+===============
 
 .. note:: Tested with Ansible 2.10 and Venafi Trust Protection Platform 20.2
 

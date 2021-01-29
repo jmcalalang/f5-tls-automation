@@ -1,5 +1,5 @@
-Letsencrypt integration with F5 Cloudservices primary DNS and BIG-IP
-====================================================================
+BIG-IP - Letsencrypt with F5 Cloudservices DNS
+==============================================
 
 .. note:: Tested with Ansible 2.09
 
@@ -15,16 +15,16 @@ This ansible role provides following functionality:
 
 The rolename is: **f5cs_dns_letsencrypt_bigip**
 
-The role can be downloaded from the roles folder. Click here_.
+The role can be downloaded from the roles folder here: `Ansible Roles`_.
 
-.. _here: ./roles/
+
 
 Steps of the Role:
-==================
+******************
 
 1. Create a subdirectory on the ansible host to run and store letsencrypt environment
 
-   - default directory is the '{{playbook_dir}}/F5letsencrypt'
+   - default directory is the ``{{playbook_dir}}/F5letsencrypt``
    - This directory can be changed via variable.
 
 2. Create letsencrypt account ID
@@ -113,6 +113,9 @@ Example run command for Letsencrypt production API environment. This command cre
 Example Ansible environment:
 ****************************
 
-An example ansible environment can be `found here`_.
+An example ansible environment can be here: `Ansible Environment`_
 
-.. _`found here`: ./example_ansible_env/
+
+.. _`Ansible Roles`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/roles
+
+.. _`Ansible Environment`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/example_ansible_env

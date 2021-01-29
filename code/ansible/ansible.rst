@@ -1,5 +1,5 @@
-BIG-IP Ansible Modules
-======================
+BIG-IP - Ansible Modules
+========================
 
 .. note:: Tested with Ansible 2.10
 
