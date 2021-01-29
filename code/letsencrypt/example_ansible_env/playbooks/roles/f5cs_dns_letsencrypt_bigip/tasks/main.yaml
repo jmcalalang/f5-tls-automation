@@ -1,0 +1,11 @@
+---
+
+- include_tasks: prepare_environment.yml
+
+- include_tasks: initial_letsencrypt_request.yml
+
+- include_tasks: mod_acme_record.yml
+
+- include_tasks: finish_letsencrypt_request.yml
+
+- include_tasks: send_cert_to_bigip.yml
