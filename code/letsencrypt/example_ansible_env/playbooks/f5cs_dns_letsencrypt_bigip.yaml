@@ -1,17 +1,18 @@
 - name: F5 TLS automation
-  hosts: localhost
+  hosts: bigip
   connection: local
   gather_facts: false
 
-  vars:
-    provider:
-      server: 'bigip'
-      user: 'admin'
-      password: 'bigip_admin_password'
-      validate_certs: no
-      server_port: 443
-    partition: 'Common'
-    state: 'present'
+## the provider vars are defined under host_vars
+#  vars:
+#    provider:
+#      server: 'bigip'
+#      user: 'admin'
+#      password: 'bigip_admin_password'
+#      validate_certs: no
+#      server_port: 443
+#    partition: 'Common'
+#    state: 'present'
 
   roles:
     - roles/f5cs_dns_letsencrypt_bigip
