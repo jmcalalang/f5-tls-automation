@@ -22,41 +22,44 @@ The role can be downloaded from the roles folder here: `Ansible Roles`_.
 Steps of the Role:
 ==================
 
-1. Create a subdirectory on the ansible host to run and store letsencrypt environment
+1. Checks if certificate already exists in certificate folder. If exists skip subsequent certificate creation steps.
+
+2. Create a subdirectory on the ansible host to run and store letsencrypt environment
 
    - default directory is the ``{{playbook_dir}}/F5letsencrypt``
    - This directory can be changed via variable.
 
-2. Create letsencrypt account ID
+3. Create letsencrypt account ID
 
    - there is a variable that forces the role to create a new Account ID if desired
 
-3. Create TLS Certificate signing request
+4. Create TLS Certificate signing request
 
    - the csr is stored in the csr subfolder
 
-4. Send API call to Letsencrypt to initiate domain name ownership verification
+5. Send API call to Letsencrypt to initiate domain name ownership verification
 
    - this role uses DNS as verification method.
    - per default it is send to Letsencrypt staging envionment, but a variable will instruct it to send it to Letsencrypt production environment.
 
-5. Create/modify acme-challenge value into F5 Cloudservices primary DNS entry for existing zone record
+6. Create/modify acme-challenge value into F5 Cloudservices primary DNS entry for existing zone record
 
    - uses an exisiting F5 Cloudservices account with subscription to primary DNS
    - the zone record for the domain name has to exist and be activated prior before the role is run
    - creates or modifies the _acme-challenge dns prefix entry for Letsencrypt verification
 
-6. Send API call to Letsencrypt to finish domain name ownership verification and download certificate and fullchain certificate
+7. Send API call to Letsencrypt to finish domain name ownership verification and download certificate and fullchain certificate
 
    - finishes letsencrypt verification and download certificate, CA certificate and fullchain certificate into the certs subfolder
 
-7. Upload certificate and key into BIG-IP
+8. Upload certificate and key into BIG-IP
 
+   - skip this step if ``send_to_bigip`` does not have the value ``on``
    - login credentials with admin rights must be provides
 
-8. Create Client SSL profile in BIG-IP and use uploaded key, certificate and CA
+9. Create Client SSL profile in BIG-IP and use uploaded key, certificate and CA
 
-   - installs key, cert and CA cert into BIG-IP and creates a new SSL profile with the cert/key partition
+   - installs key, cert and CA cert into BIG-IP and creates a new SSL profile with the cert/key/CAchain
 
 Variables required for the role:
 ================================
@@ -85,6 +88,10 @@ Optional variables
 +------------------------+-----------------------------------------+----------------------------------+
 | new_le_account_key:    | ``true`` or ``false`` - forces role to  | ``false``                        |
 |                        | generate a new Letsencrypt account ID   |                                  |
++------------------------+-----------------------------------------+----------------------------------+
+| send_to_bigip:         | ``on`` to send cert/key to BIG-IP       |  ``on``                          |
+|                        | any other value skipps importing of     |                                  |
+|                        | cert/key into BIG-IP. Good for testing  |                                  |
 +------------------------+-----------------------------------------+----------------------------------+
 
 
