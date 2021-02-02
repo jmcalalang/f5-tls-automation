@@ -1,10 +1,10 @@
 - name: F5 TLS automation
-  hosts: bigip
+  hosts: bigip_group
   connection: local
   gather_facts: false
 
 ## the provider vars are defined under host_vars
-#  vars:
+  vars:
 #    provider:
 #      server: 'bigip'
 #      user: 'admin'
@@ -15,4 +15,4 @@
 #    state: 'present'
 
   roles:
-    - roles/f5cs_dns_letsencrypt_bigip
+    - ../roles/f5cs_dns_letsencrypt_bigip

@@ -4,7 +4,7 @@ BIG-IP - Letsencrypt with F5 Cloudservices DNS
 .. note:: Tested with Ansible 2.09
 
 Summary
-*******
+=======
 
 This ansible role provides following functionality:
 
@@ -20,7 +20,7 @@ The role can be downloaded from the roles folder here: `Ansible Roles`_.
 
 
 Steps of the Role:
-******************
+==================
 
 1. Create a subdirectory on the ansible host to run and store letsencrypt environment
 
@@ -59,7 +59,7 @@ Steps of the Role:
    - installs key, cert and CA cert into BIG-IP and creates a new SSL profile with the cert/key partition
 
 Variables required for the role:
-********************************
+================================
 
 +------------------------+-------------------------------------------+--------------------+
 | vars                   | description                               | default values     |
@@ -89,7 +89,7 @@ Optional variables
 
 
 Example playbook
-****************
+=================
 
 This is an example playbook for the role.
 It assumes the roles folder is under the playbook folder. Please adjust to ansible host environment.
@@ -107,7 +107,7 @@ To upload the key to multiple BIG-IP instances perform followong steps:
 .. literalinclude :: example_playbook_multiple_bigip.yml
    :language: yaml
 
-2. create a var group with the same name in the hosts :file:`
+2. create a var group with the same name in the hosts :file:
 
 .. literalinclude :: hosts_multiple
    :language: yaml`
@@ -119,7 +119,7 @@ use following content for each file and adjust the var values accordingly
    :language: yaml`
 
 Example Run command:
-********************
+====================
 Example run command for Letsencrypt staging API environment. **Does not** create valid TLS certificates.
 
 ``ansible-playbook example_playbook.yml -e "f5cs_username=<F5CS_username>" -e "f5cs_password=<F5CSPassword>" -e "domain_name=<www.mydomain.com>"``
@@ -132,7 +132,7 @@ Example run command for Letsencrypt production API environment. This command cre
 .. warning:: This role will create a folder structure to store letsencrypt account key, certificate, key, CA certificate and csr.
 
 Example Ansible environment:
-****************************
+============================
 
 An example ansible environment can be here: `Ansible Environment`_
 

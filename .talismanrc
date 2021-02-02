@@ -63,3 +63,13 @@ fileignoreconfig:
   checksum: f4b8a0ccf46cb23877dd36bd0c30008913d1e2b9bd6f194115845204c326e512
 - filename: _build/html/_static/jquery-3.5.1.js
   checksum: f1974d3e76f4a1eef10987c30eb6b22b3bb5b58115e32b8d00bcabec57cc859e
+- filename: code/letsencrypt/example_ansible_env/playbooks/roles/f5cs_dns_letsencrypt_bigip/tasks/mod_acme_record.yml
+  checksum: 2e30129068ce4c1d976d57b1ee8a1f987ae75ae4546079e58294fe804130dbcc
+- filename: code/letsencrypt/example_ansible_env/host_vars/example_bigip2
+  checksum: 3e6f849d95cafe5b17e1e972f2f7f25ef86be7689152577739e29e6b0b94c198
+- filename: code/letsencrypt/roles/f5cs_dns_letsencrypt_bigip/tasks/login_to_f5cs.yml
+  checksum: 0e6e8e6e0cfd0aa6acef6829f4ec2079ded33a2bcbded90308fc4fac849e6b7d
+- filename: code/letsencrypt/example_ansible_env/roles/f5cs_dns_letsencrypt_bigip/tasks/login_to_f5cs.yml
+  checksum: 314d3bd7d042dd2f31268944f37ef370f379f727edb50ab1bb50c017808877cc
+- filename: code/letsencrypt/roles/f5cs_dns_letsencrypt_bigip/tasks/mod_acme_record.yml
+  checksum: 6109293678406f45d6cc624bc490e01ed7c8be86c0723591962e7780fe41d925
