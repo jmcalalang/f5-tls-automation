@@ -2,6 +2,7 @@
   hosts: bigip_group
   connection: local
   gather_facts: false
+  serial: 1
 
 ## the provider vars are defined under host_vars
   vars:
