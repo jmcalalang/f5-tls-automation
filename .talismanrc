@@ -59,3 +59,7 @@ fileignoreconfig:
   checksum: 5e70b2d773e9c55a0f083e0a72096021a72024b0f59b27afa170c7f1b91897b8
 - filename: _build/html/_static/jquery-3.5.1.js
   checksum: f1974d3e76f4a1eef10987c30eb6b22b3bb5b58115e32b8d00bcabec57cc859e
+- filename: code/letsencrypt/example_playbook.yml
+  checksum: 16feea2f68664955e1a5ffcc62712a9c919612036a88cb84fa6faf01565159e6
+- filename: code/letsencrypt/example_playbook_multiple_bigip.yml
+  checksum: 8a6353cb9da7d5ea41859a15f5a827902a55758f297dd10319e3ca8854ec33f0
