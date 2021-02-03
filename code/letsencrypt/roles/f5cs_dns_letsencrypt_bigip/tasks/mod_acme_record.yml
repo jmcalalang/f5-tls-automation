@@ -1,53 +1,5 @@
 ---
 
-## tasks file for f5dnsprimary
-
-## login to Cloudservices and receive authentication Token
-- name: send login to F5 Cloud Services API and receive authentication token
-  uri:
-    url: "https://api.cloudservices.f5.com/v1/svc-auth/login"
-    method: POST
-    headers:
-      Content-Type: "application/json"
-    body:
-      username: "{{f5cs_username}}"
-      password: "{{f5cs_password}}"
-    body_format: json
-  register: auth_response
-
-- name: set auth token in variable
-  set_fact:
-    f5_auth_token: "{{auth_response.json.access_token}}"
-  when: auth_response is success
-
-#- name: show auth token
-#  debug:
-#    msg: "{{ f5_auth_token }}"
-
-## Collect required account inforormation
-- name: receive Account information
-  uri:
-    url: "https://api.cloudservices.f5.com/v1/svc-account/user"
-    method: GET
-    headers:
-      Accept: "application/json"
-      Authorization: "Bearer {{ f5_auth_token }}"
-      Content-Type: "application/json"
-  register: user_details
-
-#- name: show user details
-#  debug:
-#    msg: "{{ user_details }}"
-
-- name: set primary account ID in variable
-  set_fact:
-    user_account_id: "{{user_details.json.primary_account_id}}"
-  when: user_details is success
-
-#- name: show user account id
-#  debug:
-#    msg: "{{ user_account_id }}"
-
 ## List all primary DNS subscriptions
 - name: receive all primary DNS subscriptions
   uri:
@@ -122,7 +74,7 @@
 - name: prepare json body for acme challenge
   template:
     src: templates/f5dns_acme_challenge.j2
-    dest: "{{role_path}}/templates/output/f5dns_acme_challenge.json"
+    dest: "{{role_path}}/templates/f5dns_acme_challenge_{{domain_name}}.json"
   delegate_to: localhost
 
 ## Send API call to modify the zone records for acme challenge
@@ -134,7 +86,7 @@
     headers:
       Authorization: "Bearer {{ f5_auth_token }}"
       Content-Type: "application/json"
-    body: "{{lookup('file','{{role_path}}/templates/output/f5dns_acme_challenge.json') }}"
+    body: "{{lookup('file','{{role_path}}/templates/f5dns_acme_challenge_{{domain_name}}.json') }}"
     body_format: json
 #  register: declaration_response
 
@@ -146,7 +98,7 @@
 ## remove temporary files
 - name: delete temporary file
   file:
-    path: "{{role_path}}/templates/output/f5dns_acme_challenge.json"
+    path: "{{role_path}}/templates/f5dns_acme_challenge_{{domain_name}}.json"
     state: absent
 
 - name: wait for 20 seconds to propagate

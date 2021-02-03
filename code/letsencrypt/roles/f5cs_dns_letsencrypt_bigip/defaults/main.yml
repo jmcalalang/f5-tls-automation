@@ -23,3 +23,4 @@ letsencrypt_certs_dir: '{{ letsencrypt_dir}}/certs'
 letsencrypt_account_key: '{{ letsencrypt_dir}}/account/account.key'
 new_le_account_key: false
 domain_name: ""
+send_to_bigip: "on"

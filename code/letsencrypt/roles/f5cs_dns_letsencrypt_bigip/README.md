@@ -93,7 +93,10 @@ This example is from the playbook
     partition: 'Common'
     state: 'present'
 ```
-
+Switch to send to BIG-IP or not. In case this is not set to "on" then the role will create the certificate and
+```
+send_to_bigip: "on"
+```
 
 Dependencies
 ------------
