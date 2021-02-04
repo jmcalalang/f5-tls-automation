@@ -247,6 +247,6 @@ Here a script that can be run on an ubuntu 18.04 host to install all required so
    :language: bash`
 
 
-.. _`Ansible Roles`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/roles
+.. _`Ansible Roles`: https://github.com/f5devcentral/f5-tls-automation/tree/main/code/letsencrypt/roles
 
-.. _`Ansible Environment`: https://github.com/jmcalalang/f5-tls-automation/tree/main/code/letsencrypt/example_ansible_env
+.. _`Ansible Environment`: https://github.com/f5devcentral/f5-tls-automation/tree/main/code/letsencrypt/example_ansible_env

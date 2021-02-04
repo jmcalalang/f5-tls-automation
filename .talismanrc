@@ -65,3 +65,5 @@ fileignoreconfig:
   checksum: 8a6353cb9da7d5ea41859a15f5a827902a55758f297dd10319e3ca8854ec33f0
 - filename: code/letsencrypt/letsencrypt.rst
   checksum: 59780e2d57afb98286c3fe102df62cb06031c75c8b6e1a2c365747e2d4aadbc8
+- filename: code/ansible/main.yml
+  checksum: c60091fdd563dc80092c09f47f8cc1b3e2211a174dcd52e84c2937af49631f28
